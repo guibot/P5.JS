@@ -2,6 +2,7 @@ let toggles = [];
 let slidersGrupos = [];
 let activeGroup = 0;
 let togglesTotal = 6;
+let slidersTotal = 10;
 
 function setup() {
   createCanvas(600, 400);
@@ -12,16 +13,15 @@ function setup() {
     toggles.push(new ToggleSimple(5 + i * 15, 5, 10, 10, "Grupo " + (i + 1), false, i, false));
   }
 
-  // Criar 4 grupos de sliders
+  // Criar grupos de sliders
   for (let i = 0; i < togglesTotal; i++) {
     let grupo = [];
-    for (let j = 0; j < togglesTotal; j++) {
-      grupo.push(new SliderSimple(5, 25 + j * 20, 100, 10, 0, 100, random(100), "S" + (j + 1)));
+    for (let j = 0; j < slidersTotal; j++) {
+      grupo.push(new SliderSimple(5, 25 + j * 20, 100, 10, 0, 100, random(100), "S" + (j + 1), false, true));
     }
     slidersGrupos.push(grupo);
   }
 }
-
 
 function draw() {
   background(240);

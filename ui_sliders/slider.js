@@ -1,6 +1,6 @@
 class SliderSimple {
   
-    constructor(x, y, w, h, min, max, val, txt) {
+    constructor(x, y, w, h, min, max, val, txt, showtxt, showval) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -10,6 +10,8 @@ class SliderSimple {
         this.val = val;
         this.drag = false;
         this.txt = txt;
+        this.showtxt =showtxt;
+        this.showval = showval;
       }
   
     draw() {
@@ -25,8 +27,8 @@ class SliderSimple {
         rect(this.x, this.y, pos, this.h);
         fill(0);
         noStroke();
-        text(this.val.toFixed(2), this.x+this.w+5, this.y+this.h/2+3);
-        text(this.txt, this.x+this.w+40, this.y+this.h/2+3);
+        if (this.showval) text(this.val.toFixed(2), this.x+this.w+5, this.y+this.h/2+3);
+        if (this.showtxt) text(this.txt, this.x+this.w+40, this.y+this.h/2+3);
     }
 
     update() {
